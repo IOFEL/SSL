@@ -34,6 +34,7 @@ La declaración `...` solo puede aparecer al final de la lista de argumentos.
 **5**- Preprocesar hello3.c , no compilar, y generar hello3.i . Buscar diferencias
 entre hello3.c y hello3.i .
 
+
 **comando ejecutado**
 
 	gcc -std=c11 -E hello3.c -o hello3.i
@@ -75,6 +76,7 @@ Nos crea el archivo hello3.s pero no hay nada en su interior.
 **7**- Corregir en el nuevo archivo hello4.c y empezar de nuevo, generar
 hello4.s , no ensamblar.
 
+
 **comando ejecutado**
 
 	gcc -std=c11 -S hello4.c
@@ -87,6 +89,8 @@ hello4.s , no ensamblar.
 Nos tira una ==advertencia== porque no esta declarada `prontf`. Esta vez, nos genero el archivo hello4.s con codigo assembler.
 
 **8**- Investigar hello4.s .
+
+
 **resultado**
 
 		.file	"hello4.c"
@@ -123,11 +127,14 @@ Define la organización de un programa en assembler.  Tiene seccion donde declar
 
 **9**- Ensamblar hello4.s en hello4.o , no vincular.
 
+
 **comando ejecutado**
 
 	as -o hello4.o hello4.s
 
 **resultado**
+
+
 Se crea un archivo binario llamado hello4.o que contiene código objeto.
 
 **10**- Vincular hello4.o con la biblioteca estándar y generar el ejecutable
@@ -144,9 +151,11 @@ No encuentra la definición de `prontf`. No se crea el ejecutable.
 
 **11**- Corregir en hello5.c y generar el ejecutable.
 
+
 **comando ejecutado**
 
 	gcc -std=c11 hello5.c -o hello5
+
 
 **resultado**
 
@@ -159,9 +168,11 @@ Nos tira una ==advertencia== sobre el formato `%d` que espera coincidir con un `
 
 **12**- Ejecutar y analizar el resultado.
 
+
 **comando ejecutado**
 
 	./hello5
+
 
 **resultado**
 
@@ -204,8 +215,12 @@ Basicamente no le pasamos el `int` que esperaba entonces completo con  cualquier
 	printf("La respuesta es %d\n", i);
 	}
 - Creación del ejecutable hello7:
+
+
 	**comando ejecutado**
 
+
+		
 		gcc -std=c11 hello7.c -o hello7
 
 	**resultado**
@@ -219,11 +234,16 @@ Basicamente no le pasamos el `int` que esperaba entonces completo con  cualquier
 
 
 - Ejecutando hello6:
+	
+	
 	**comando ejecutado**
+	
 
 		./hello7
 
+
 	**resultado**
+
 
 		La respuesta es 42
 
@@ -231,4 +251,4 @@ Basicamente no le pasamos el `int` que esperaba entonces completo con  cualquier
 
 No hay errores sintacticos. El programa esta bien escrito.
 Las dos advertencias que nos tira son del compilador. Nos dice que no esta definida `printf`.
-Si bien no definimos la funcion esta se encuentra en la libreria de c. El linker se encarga enlazar la definicion de `printf`.
+Si bien no definimos la funcion esta se encuentra en la libreria de c. El linker se encarga enlazar por default con la libreria estandar la definicion de `printf`.
