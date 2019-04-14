@@ -4,11 +4,11 @@
 
 
 	#include <stdio.h>
-	
+
 	int/*medio*/main(void){
 		int i=42;
 		prontf("La respuesta es %d\n");
-	}
+
 **2**-Preprocesar hello2.c , no compilar, y generar hello2.i . Analizar su
 contenido.
 
@@ -28,7 +28,7 @@ El  "hello2.i" contiene los structs, typedef, prototipos de las funciones y dire
 	prontf("La respuesta es %d\n");
 **4** - Investigar la semantica de la primera línea.
 
-La primera linea `int printf(const char *s, ...)` define el prototipo de la funcion printf. La declaración `...` nos dice que la cantidad y tipo de esos argumentos puede variar. 
+La primera linea `int printf(const char *s, ...)` define el prototipo de la funcion printf. La declaración `...` nos dice que la cantidad y tipo de esos argumentos puede variar.
 La declaración `...` solo puede aparecer al final de la lista de argumentos.
 
 **5**- Preprocesar hello3.c , no compilar, y generar hello3.i . Buscar diferencias
@@ -119,7 +119,7 @@ Nos tira una ==advertencia== porque no esta declarada `prontf`. Esta vez, nos ge
 		.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609"
 		.section	.note.GNU-stack,"",@progbits
 
-Define la organización de un programa en assembler.  Tiene seccion donde declara los datos y otra donde declara los pasos a ejecutar en assembler. 
+Define la organización de un programa en assembler.  Tiene seccion donde declara los datos y otra donde declara los pasos a ejecutar en assembler.
 
 **9**- Ensamblar hello4.s en hello4.o , no vincular.
 
@@ -154,11 +154,11 @@ No encuentra la definición de `prontf`. No se crea el ejecutable.
 	hello5.c:5:9: warning: format ‘%d’ expects a matching ‘int’ argument [-Wformat=]
 	  printf("La respuesta es %d\n");
 		 ^
-		 
+
 Nos tira una ==advertencia== sobre el formato `%d` que espera coincidir con un `int`. Nos crea el ejecutable.
 
 **12**- Ejecutar y analizar el resultado.
-	   				 
+
 **comando ejecutado**
 
 	./hello5
@@ -209,7 +209,7 @@ Basicamente no le pasamos el `int` que esperaba entonces completo con  cualquier
 		gcc -std=c11 hello7.c -o hello7
 
 	**resultado**
-	
+
 		hello7.c: In function ‘main’:
 		hello7.c:3:2: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
 		  printf("La respuesta es %d\n",i);
@@ -232,31 +232,3 @@ Basicamente no le pasamos el `int` que esperaba entonces completo con  cualquier
 No hay errores sintacticos. El programa esta bien escrito.
 Las dos advertencias que nos tira son del compilador. Nos dice que no esta definida `printf`.
 Si bien no definimos la funcion esta se encuentra en la libreria de c. El linker se encarga enlazar la definicion de `printf`.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
